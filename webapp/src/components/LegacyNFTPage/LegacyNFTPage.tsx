@@ -23,14 +23,14 @@ const LegacyNFTPage = (props: Props) => {
     const estates = getContract({ category: NFTCategory.ESTATE })
 
     if (estateId) {
-      history.replace(locations.nft(estates.address, estateId))
+      history.push(locations.nft(estates.address, estateId))
     } else if (x && y) {
       nftAPI
         .fetchTokenId(Number(x), Number(y))
         .then(tokenId => {
-          history.replace(locations.nft(land.address, tokenId))
+          history.push(locations.nft(land.address, tokenId))
         })
-        .catch(() => history.replace(locations.root()))
+        .catch(() => history.push(locations.root()))
     }
   }, [contractService, params, history])
 

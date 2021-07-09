@@ -1,9 +1,8 @@
 import * as React from 'react'
 import { Address } from 'web3x-es/address'
-import { Row, Section, Header } from 'decentraland-ui'
+import { Badge, Row, Section, Header } from 'decentraland-ui'
 import { Profile } from 'decentraland-dapps/dist/containers'
 import { t } from 'decentraland-dapps/dist/modules/translation/utils'
-import { Coordinate } from '../../Coordinate'
 import { Mana } from '../../Mana'
 import { Props } from './Popup.types'
 import './Popup.css'
@@ -11,6 +10,7 @@ import './Popup.css'
 export default class Popup extends React.PureComponent<Props> {
   render() {
     const { x, y, visible, tile, position } = this.props
+    const id = `${tile.x},${tile.y}`
     const isEstate = !!tile.estate_id
     return (
       <div
@@ -25,7 +25,10 @@ export default class Popup extends React.PureComponent<Props> {
               {tile.name ||
                 (!isEstate ? t('global.parcel') : t('global.estate'))}
             </span>
-            <Coordinate className={'coordinates'} x={tile.x} y={tile.y} />
+            <Badge color="#37333D">
+              <i className="pin" />
+              {id}
+            </Badge>
           </Row>
         </Section>
 

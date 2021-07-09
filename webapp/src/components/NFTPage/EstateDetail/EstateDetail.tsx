@@ -17,7 +17,6 @@ import { ProximityHighlights } from '../ProximityHighlights'
 import { TransactionHistory } from '../TransactionHistory'
 import { Bids } from '../Bids'
 import { Props } from './EstateDetail.types'
-import { ParcelCoordinates } from './ParcelCoordinates'
 import './EstateDetail.css'
 
 const EstateDetail = (props: Props) => {
@@ -71,7 +70,6 @@ const EstateDetail = (props: Props) => {
         </Row>
         <ProximityHighlights nft={nft} />
         <Bids nft={nft} />
-        <ParcelCoordinates estate={estate} />
         <TransactionHistory nft={nft} />
       </Container>
     </>
